@@ -20,12 +20,8 @@ public:
 	void set_num(int numerator_S);
 	void set_den(int denominator_S);
 
-	Fraction()
-	{
-		numerator = 1;
-		denominator = 1;
-	}
-	Fraction(int numerator_S, int denominator_S);
+	Fraction() : Fraction(1, 1) {};
+	Fraction(int numerator_S, int denominator_S) : numerator{numerator_S}, denominator{denominator_S}{}
 
 	int reduction()
 	{
