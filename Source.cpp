@@ -26,20 +26,8 @@ int main()
 		switch (number)
 		{
 		case FILL:
-			cout << "¬ведите первый числитель: ";
-			cin >> numer;
-			cout << "¬ведите первый знаменатель: ";
-			cin >> denom;
-			fraction.set_num(numer);
-			fraction.set_den(denom);
-
-			cout << "¬ведите второй числитель: ";
-			cin >> numer;
-			cout << "¬ведите второй знаменатель: ";
-			cin >> denom;
-			fraction2.set_num(numer);
-			fraction2.set_den(denom);
-
+			cin >> fraction;
+			cin >> fraction2;
 			break;
 		case SUM:
 			cout << "—умма дробей: " << fraction + fraction2;
@@ -54,8 +42,8 @@ int main()
 			cout << "„астное дробей: " << fraction / fraction2;
 			break;
 		case PRINT:
-			fraction.print();
-			fraction2.print();
+			cout << fraction;
+			cout << fraction2;
 			break;
 		case EXIT:
 			cout << "”ра, вы наконец-то вышли, прощайте!!!\n";

@@ -17,3 +17,8 @@ void Fraction::set_den(int denominator_S)
 	}
 }
 
+Fraction::Fraction(int numerator_S, int denominator_S)
+{
+	numerator = numerator_S;
+	denominator = denominator_S; 
+}

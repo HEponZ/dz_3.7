@@ -47,11 +47,6 @@ public:
 	}
 	Fraction(int numerator_S, int denominator_S);
 
-	void print()
-	{
-		printf("%d/%d\n", numerator, denominator);
-	}
-
 	friend const Fraction operator+(const Fraction& fract, const Fraction& fract2)
 	{
 		int den, num, NoD, buf_num, buf_den;
@@ -149,10 +144,19 @@ public:
 		return Fraction(num / buf_den, den / buf_den);
 	}
 
-	friend ostream& operator<<(ostream& my_cout, const Fraction& fract)
+	friend ostream& operator<< (ostream& my_cout, const Fraction& fract)
 	{
 		my_cout << fract.numerator << "/" << fract.denominator << "\n";
 
 		return my_cout;
+	}
+	friend istream& operator>> (istream& my_cin, Fraction& fract)
+	{
+		cout << "¬ведите числитель: ";
+		cin >> fract.numerator;
+		cout << "¬ведите знаменатель: ";
+		cin >> fract.denominator;
+
+		return my_cin;
 	}
 };
