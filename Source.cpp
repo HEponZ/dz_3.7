@@ -4,8 +4,8 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 
-	int numer, denom, number;
-	Fraction fraction, fraction2;
+	int numer, denom, number, NoD;
+	Fraction fraction, fraction2, res_fract;
 
 	enum MENU {
 		EXIT = 0,
@@ -30,16 +30,32 @@ int main()
 			cin >> fraction2;
 			break;
 		case SUM:
-			cout << "Сумма дробей: " << fraction + fraction2;
+			res_fract = fraction + fraction2;
+			NoD = res_fract.reduction();
+			res_fract.set_num(res_fract.get_num() / NoD);
+			res_fract.set_den(res_fract.get_den() / NoD);
+			cout << "Сумма дробей: " << res_fract;
 			break;
 		case DIFF:
-			cout << "Разность дробей: " << fraction - fraction2;
+			res_fract = fraction - fraction2;
+			NoD = res_fract.reduction();
+			res_fract.set_num(res_fract.get_num() / NoD);
+			res_fract.set_den(res_fract.get_den() / NoD);
+			cout << "Разность дробей: " << res_fract;
 			break;
 		case COMPOS:
-			cout << "Произведение дробей: " << fraction * fraction2;
+			res_fract = fraction * fraction2;
+			NoD = res_fract.reduction();
+			res_fract.set_num(res_fract.get_num() / NoD);
+			res_fract.set_den(res_fract.get_den() / NoD);
+			cout << "Произведение дробей: " << res_fract;
 			break;
 		case DIVISION:
-			cout << "Частное дробей: " << fraction / fraction2;
+			res_fract = fraction / fraction2;
+			NoD = res_fract.reduction();
+			res_fract.set_num(res_fract.get_num() / NoD);
+			res_fract.set_den(res_fract.get_den() / NoD);
+			cout << "Частное дробей: " << res_fract;
 			break;
 		case PRINT:
 			cout << fraction;

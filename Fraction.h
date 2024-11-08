@@ -7,10 +7,29 @@ class Fraction {
 private:
 	int numerator;
 	int denominator;
-
-	int reduction(int& num, int& den)
+public:
+	int get_num()
 	{
-		int buf_num = num, buf_den = den;
+		return numerator;
+	}
+	int get_den()
+	{
+		return denominator;
+	}
+
+	void set_num(int numerator_S);
+	void set_den(int denominator_S);
+
+	Fraction()
+	{
+		numerator = 1;
+		denominator = 1;
+	}
+	Fraction(int numerator_S, int denominator_S);
+
+	int reduction()
+	{
+		int buf_num = numerator, buf_den = denominator;
 
 		while (buf_num != buf_den)
 		{
@@ -26,122 +45,42 @@ private:
 
 		return buf_den;
 	}
-public:
-	int get_num()
-	{
-		return numerator;
-	}
-	int get_den()
-	{
-		return denominator;
-	}
-
-
-	void set_num(int numerator_S);
-	void set_den(int denominator_S);
-
-	Fraction()
-	{
-		numerator = 1;
-		denominator = 1;
-	}
-	Fraction(int numerator_S, int denominator_S);
 
 	friend const Fraction operator+(const Fraction& fract, const Fraction& fract2)
 	{
-		int den, num, NoD, buf_num, buf_den;
+		int den, num;
 
 		num = fract.numerator * fract2.denominator + fract2.numerator * fract.denominator;
 		den = fract.denominator * fract2.denominator;
 
-		buf_num = num;
-		buf_den = den;
-
-		while (buf_num != buf_den)
-		{
-			if (buf_num > buf_den)
-			{
-				buf_num = buf_num - buf_den;
-			}
-			else
-			{
-				buf_den = buf_den - buf_num;
-			}
-		}
-
-		return Fraction(num / buf_den, den / buf_den);
+		return Fraction(num, den);
 	}
 	friend const Fraction operator-(const Fraction& fract, const Fraction& fract2)
 	{
-		int den, num, NoD, buf_num, buf_den;
+		int den, num;
 
 		num = fract.numerator * fract2.denominator - fract2.numerator * fract.denominator;
 		den = fract.denominator * fract2.denominator;
 
-		buf_num = num;
-		buf_den = den;
-
-		while (buf_num != buf_den)
-		{
-			if (buf_num > buf_den)
-			{
-				buf_num = buf_num - buf_den;
-			}
-			else
-			{
-				buf_den = buf_den - buf_num;
-			}
-		}
-
-		return Fraction(num / buf_den, den / buf_den);
+		return Fraction(num , den);
 	}
 	friend const Fraction operator*(const Fraction& fract, const Fraction& fract2)
 	{
-		int den, num, NoD, buf_num, buf_den;
+		int den, num;
 
 		num = fract.numerator * fract2.numerator;
 		den = fract.denominator * fract2.denominator;
 
-		buf_num = num;
-		buf_den = den;
-
-		while (buf_num != buf_den)
-		{
-			if (buf_num > buf_den)
-			{
-				buf_num = buf_num - buf_den;
-			}
-			else
-			{
-				buf_den = buf_den - buf_num;
-			}
-		}
-
-		return Fraction(num / buf_den, den / buf_den);
+		return Fraction(num, den);
 	}
 	friend const Fraction operator/(const Fraction& fract, const Fraction& fract2)
 	{
-		int den, num, NoD, buf_num, buf_den;
+		int den, num;
 
 		num = fract.numerator * fract2.denominator;
 		den = fract.denominator * fract2.numerator;
 
-		buf_num = num;
-		buf_den = den;
-
-		while (buf_num != buf_den)
-		{
-			if (buf_num > buf_den)
-			{
-				buf_num = buf_num - buf_den;
-			}
-			else
-			{
-				buf_den = buf_den - buf_num;
-			}
-		}
-
-		return Fraction(num / buf_den, den / buf_den);
+		return Fraction(num, den);
 	}
 
 	friend ostream& operator<< (ostream& my_cout, const Fraction& fract)
