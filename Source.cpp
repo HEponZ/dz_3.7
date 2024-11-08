@@ -52,7 +52,6 @@ int main()
 			break;
 		case DIVISION:
 			cout << "Частное дробей: " << fraction / fraction2;
-			fraction.division(fraction2.get_num(), fraction2.get_den());
 			break;
 		case PRINT:
 			fraction.print();

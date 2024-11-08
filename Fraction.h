@@ -47,11 +47,6 @@ public:
 	}
 	Fraction(int numerator_S, int denominator_S);
 
-	void sum(int num2, int den2);
-	void diff(int num2, int den2);
-	void compos(int num2, int den2);
-	void division(int num2, int den2);
-
 	void print()
 	{
 		printf("%d/%d\n", numerator, denominator);
